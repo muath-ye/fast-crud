@@ -79,7 +79,7 @@ class PostResource extends Resource
     public function rules(Model $model): array
     {
         return [
-            'slug' => [
+            'title' => [
                 'required',
                 Rule::unique(self::$model, 'title')->ignore($model),
             ],
