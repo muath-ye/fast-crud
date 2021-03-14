@@ -83,4 +83,15 @@ class PostResource extends Resource
             ],
         ];
     }
+
+    /**
+     * Get the resource should be displayed in the navigation
+     *
+     * @return bool
+     */
+    public static function displayInNavigation(): bool
+    {
+        return true; // will be displayed
+        return false; // will not displayed
+    }
 }
