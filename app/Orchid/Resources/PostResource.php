@@ -44,6 +44,8 @@ class PostResource extends Resource
             TD::make('id'),
             
             TD::make('title'),
+            
+            TD::make('user_id'),
 
             TD::make('created_at', 'Date of creation')
                 ->render(function ($model) {
@@ -79,7 +81,7 @@ class PostResource extends Resource
         return [
             'slug' => [
                 'required',
-                Rule::unique(self::$model, 'slug')->ignore($model),
+                Rule::unique(self::$model, 'title')->ignore($model),
             ],
         ];
     }
