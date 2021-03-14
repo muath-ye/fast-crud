@@ -63,7 +63,9 @@ class PostResource extends Resource
      */
     public function filters(): array
     {
-        return [];
+        return [
+            QueryFilter::class
+        ];
     }
 
     /**
