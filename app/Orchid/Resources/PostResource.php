@@ -94,4 +94,14 @@ class PostResource extends Resource
         return true; // will be displayed
         return false; // will not displayed
     }
+
+    /**
+     * Get relationships that should be eager loaded when performing an index query.
+     *
+     * @return array
+     */
+    public function with(): array
+    {
+        return ['user'];
+    }
 }
