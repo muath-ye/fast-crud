@@ -3,6 +3,8 @@
 namespace App\Orchid\Resources;
 
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Validation\Rule;
 use Orchid\Crud\Resource;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\TD;
@@ -62,5 +64,20 @@ class PostResource extends Resource
     public function filters(): array
     {
         return [];
+    }
+
+    /**
+     * Get the validation rules that apply to save/update.
+     *
+     * @return array
+     */
+    public function rules(Model $model): array
+    {
+        return [
+            'slug' => [
+                'required',
+                Rule::unique(self::$model, 'slug')->ignore($model),
+            ],
+        ];
     }
 }
