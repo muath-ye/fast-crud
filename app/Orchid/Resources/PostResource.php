@@ -4,6 +4,7 @@ namespace App\Orchid\Resources;
 
 use App\Models\Post;
 use Orchid\Crud\Resource;
+use Orchid\Screen\Fields\Input;
 use Orchid\Screen\TD;
 
 class PostResource extends Resource
@@ -22,7 +23,11 @@ class PostResource extends Resource
      */
     public function fields(): array
     {
-        return [];
+        return [
+            Input::make('title')
+                ->title('Title')
+                ->placeholder('Enter title here'),
+        ];
     }
 
     /**
