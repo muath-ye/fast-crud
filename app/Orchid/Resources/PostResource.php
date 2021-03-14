@@ -39,6 +39,8 @@ class PostResource extends Resource
     {
         return [
             TD::make('id'),
+            
+            TD::make('title'),
 
             TD::make('created_at', 'Date of creation')
                 ->render(function ($model) {
