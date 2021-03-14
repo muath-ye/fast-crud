@@ -3,11 +3,13 @@
 namespace App\Orchid\Resources;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\Rule;
 use Orchid\Crud\Filters\DefaultSorted;
 use Orchid\Crud\Resource;
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\TD;
 
 class PostResource extends Resource
@@ -30,6 +32,9 @@ class PostResource extends Resource
             Input::make('title')
                 ->title('Title')
                 ->placeholder('Enter title here'),
+            Relation::make('user_id')
+                ->fromModel(User::class, 'name')
+                ->title('Choose your user'),
         ];
     }
 
